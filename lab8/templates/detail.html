@@ -1,0 +1,14 @@
+{% extends 'ink/base.html' %}
+{% load static %}
+{% block content %}
+    <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Назад</a>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">{{headText}}</h1>
+    </div>
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">{{ playName }}</h1>
+    <p class="lead">{{ playText }}</p>
+  </div>
+</div>
+{% endblock content%}

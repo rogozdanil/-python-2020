@@ -1,0 +1,36 @@
+{% extends 'ink/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="pricing-header px-3 py-1 pt-md-1 pb-md-0 mx-auto text-center">
+        <h1 class="display-4">Топ Баскетболистов</h1>
+    </div>
+    <div class="row">
+        <div class="col ml-5">
+            <div class="card center-block" style="width: 100%;">
+                <img src="static/img/Big.jpg" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Самый высокий баскетболист</h5>
+                        <a href="/detail/0" class="btn btn-primary">Посмотреть</a>
+                    </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card center-block" style="width: 100%;">
+                <img src="static/img/middle.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Баскетболист среднего роста</h5>
+                        <a href="/detail/1" class="btn btn-primary">Посмотреть</a>
+                    </div>
+            </div>
+        </div>
+        <div class="col mr-5">
+            <div class="card center-block" style="width: 100%;">
+                <img src="static/img/Low.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Самый низкий баскетболист</h5>
+                        <a href="/detail/2" class="btn btn-primary">Посмотреть</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+{% endblock content%}
