@@ -1,0 +1,20 @@
+{% extends 'inc/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Список команд </h1>
+    </div>
+    {% for command in command_list %}
+        <div class="media mb-3">
+            <img src="{{ command.photo.url }}" height="100px" width="100px"
+                 class="mr-3 rounded-sm rounded-circle" style="object-fit: cover" alt="...">
+            <div class="media-body">
+                <h5 class="mt-0"><a href="{% url 'one_command' pk=command.pk %}">{{ command.title }}</a></h5>
+                <p>{{ command.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock content %}

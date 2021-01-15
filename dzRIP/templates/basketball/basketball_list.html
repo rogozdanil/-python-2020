@@ -1,29 +1,29 @@
+{% extends 'inc/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>DZRogoz</title>
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-grid.css' %}">
-    <link rel="stylesheet" href="{% static 'css/bootstrap-reboot.css' %}">
-</head>
-<body>
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Самые результативные игроки за всё время</h1>
-</div>
-
-{% for commands in basketball_list %}
-    <div class="card px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center" style="width: 18rem;">
-        <div class="card-body">
-            <h5 class="card-title">{{ commands.title }}</h5>
-            <p class="card-text">{% for commands in commands.commands.all %}
-                 <p> {{ commands.name }} </p>
-            {% endfor %}</p>
-        </div>
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Самые результативные игроки </h1>
     </div>
-{% endfor %}
-<script src="{% static 'js/bootstrap.js' %}"></script>
-<script src="{% static 'js/bootstrap.bundle.js' %}"></script>
-</body>
-</html>
+
+    <div class="d-flex align-content-center justify-content-between flex-wrap">
+        {% for command in command_list %}
+            <div class="card mb-5" style="width: 18rem;">
+                <img src="{{ command.photo.url }}" height="300px" width="300px"
+                     class="card-img-top" style="object-fit: cover" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{ command.title }}</h5>
+                </div>
+                <ul class="list-group list-group-flush">
+                    {% for player in command.players.all %}
+                        <li class="list-group-item"><a href="{% url 'one_player' pk=player.pk %}">{{ player.name }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div class="card-body">
+                    <a href="{% url 'one_command' pk=command.pk %}" class="card-link btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock content %}

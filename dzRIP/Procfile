@@ -1,0 +1,1 @@
+web: gunicorn dzRIP.wsgi --log-file -

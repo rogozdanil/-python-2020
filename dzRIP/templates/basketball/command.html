@@ -1,0 +1,18 @@
+{% extends 'inc/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Информация о команде </h1>
+    </div>
+    <div class="media mb-3">
+        <img src="{{ command.photo.url }}" height="500px" width="500px"
+             class="mr-3" style="object-fit: cover" alt="...">
+        <div class="media-body">
+            <h5 class="mt-0">{{ command.title }}</h5>
+            <p>Стадион: {{ command.stadium }}, Кол-во титутлов: {{ command.winers }}</p>
+            <p>{{ command.description }}</p>
+        </div>
+    </div>
+
+{% endblock content %}
